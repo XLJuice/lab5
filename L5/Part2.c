@@ -27,13 +27,13 @@ int main() {
 	{
 		if (localize_root(x, x + h, f))
 		{
-			printf("Интервал [%.3f, %.3f]\n", x, x + h);
+			printf("РРЅС‚РµСЂРІР°Р»:[%.3f, %.3f]\n", x, x + h);
 			double x0 = bisection(x, x + h, eps, f);
-			printf("Корень: %lf\n", x0);
+			printf("РљРѕСЂРµРЅСЊ: %lf\n", x0);
 			double x1 = secant(a, b, eps, f);
-			printf("Корень: %lf\n", x1);
+			printf("РљРѕСЂРµРЅСЊ: %lf\n", x1);
 			double x2 = Newton(a, b, eps, f, df);
-			printf("Корень: %lf\n", x2);
+			printf("РљРѕСЂРµРЅСЊ: %lf\n", x2);
 		}
 	}
 	getchar();
@@ -47,7 +47,7 @@ int localize_root(double a, double b, funct_t f)
 
 double bisection(double a, double b, double eps, funct_t f) {
 	double funcA, funcB, funcC, c=0;
-	printf("---------------------Метод бисекции----------------------\n");
+	printf("---------------------РњРµС‚РѕРґ Р±РёСЃРµРєС†РёРё----------------------\n");
 	while (fabs(a - b) > eps)
 	{
 		double c = (a + b) / 2;
@@ -77,7 +77,7 @@ double bisection(double a, double b, double eps, funct_t f) {
 }
 
 double secant(double a, double b, double eps, funct_t f){
-	printf("-----------------------Метод хорд------------------------\n");
+	printf("-----------------------РњРµС‚РѕРґ С…РѕСЂРґ------------------------\n");
 	do{
 		a = b - ((b - a) * f(b)) / (f(b) - f(a));
 		b = a - ((a - b) * f(a)) / (f(a) - f(b));
@@ -86,7 +86,7 @@ double secant(double a, double b, double eps, funct_t f){
 }
 
 double Newton(double a, double b, double eps, funct_t f, funct_t df) {
-	printf("--------------------Метод косательных--------------------\n");
+	printf("--------------------РњРµС‚РѕРґ РєРѕСЃР°С‚РµР»СЊРЅС‹С…--------------------\n");
 	a = b + 2 * eps;
 	do{
 		a = b;
